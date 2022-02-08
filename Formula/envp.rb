@@ -5,20 +5,20 @@
 class Envp < Formula
   desc "Cli wrapper to set profile based environment variables for your command line execution"
   homepage "https://github.com/sunggun-yu/envp"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.2/envp_0.0.2_darwin_amd64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "54249bb4cef3868e55da57c28a85a6492498a4997365cc86fb473fad818514e1"
+    if Hardware::CPU.arm?
+      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.3/envp_0.0.3_darwin_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "9b8f8f28d2538efc2938cf8621d6905cb652c47977a9eb74e289ca68749e2a3e"
 
       def install
         bin.install "envp"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.2/envp_0.0.2_darwin_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "e0cb4933f2ed7895c03dcd39f92e1706c3560b9987965ee593d097924e4727f8"
+    if Hardware::CPU.intel?
+      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.3/envp_0.0.3_darwin_amd64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "6c3d33670d6ea4ab6cceb7dbad8fff704c8908536ab1b742e8c5acd6781ee620"
 
       def install
         bin.install "envp"
@@ -28,16 +28,16 @@ class Envp < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.2/envp_0.0.2_linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "4896ec6b453f6b703a30958bcca136488baccb446b375db3e329c5bb1ba61de0"
+      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.3/envp_0.0.3_linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "65bb24cf7b27e49e337fbc7658465425e8bf066a3b25f83d5ca62cf779ca9868"
 
       def install
         bin.install "envp"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.2/envp_0.0.2_linux_amd64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "54967f3e5a9237208e8db5f3236bae9087e497e4dd349ee84d2c067e077a9535"
+      url "https://github.com/sunggun-yu/envp/releases/download/v0.0.3/envp_0.0.3_linux_amd64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "08e3eaaf50fa0047066d36845c71588b919a901505b02a7d6c76a49bd7f5a23f"
 
       def install
         bin.install "envp"

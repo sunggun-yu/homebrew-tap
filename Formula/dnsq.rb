@@ -5,11 +5,11 @@
 class Dnsq < Formula
   desc "A simple DNS Lookup utility"
   homepage "https://github.com/sunggun-yu/dnsq"
-  version "1.2.1"
+  version "1.2.2"
 
   on_macos do
-    url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.1/dnsq_darwin_all.tar.gz"
-    sha256 "abd4e0c31ecb8f78ce4300b62257a497bf95535d1f085c92721be77e0f576664"
+    url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.2/dnsq_darwin_all.tar.gz"
+    sha256 "389938403fefd718e1fea13d0907ee3fed07b198f9edb95bf52c55253649dc9c"
 
     def install
       bin.install "dnsq"
@@ -19,8 +19,8 @@ class Dnsq < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.1/dnsq_linux_amd64.tar.gz"
-        sha256 "0592945e12c8b98c718b95166290fcf137ab52e6c45349673360bb8bbf55074b"
+        url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.2/dnsq_linux_amd64.tar.gz"
+        sha256 "fc60dd9d7f66a7e903483bcbc589353cd5f538b1b9e0349d34b993b9cac5bdc3"
 
         def install
           bin.install "dnsq"
@@ -29,8 +29,8 @@ class Dnsq < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.1/dnsq_linux_arm64.tar.gz"
-        sha256 "22c3b66454e77092e804887ec1aef3c3d2949730a3c0519c7c33723009c148d5"
+        url "https://github.com/sunggun-yu/dnsq/releases/download/v1.2.2/dnsq_linux_arm64.tar.gz"
+        sha256 "d2c2d04aa4eb47aa2b3f1f17288634a9db1f22fca3242f0cbf335986baf1a286"
 
         def install
           bin.install "dnsq"

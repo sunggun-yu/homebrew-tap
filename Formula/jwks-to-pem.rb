@@ -5,11 +5,11 @@
 class JwksToPem < Formula
   desc "A simple cli tool to convert jwks to pem"
   homepage "https://github.com/sunggun-yu/jwks-to-pem-cli"
-  version "0.0.1"
+  version "0.0.2"
 
   on_macos do
-    url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.1/jwks-to-pem_darwin_all.tar.gz"
-    sha256 "67764d55f81570d7bbb06cb1792182d397bd4d497e408df64484c6ae5a8996c4"
+    url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_darwin_all.tar.gz"
+    sha256 "5dc81634421037f248f6f08d72060d76333a9e71cac041ea79d4ebc78d289e12"
 
     def install
       bin.install "jwks-to-pem"
@@ -17,20 +17,24 @@ class JwksToPem < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.1/jwks-to-pem_linux_arm64.tar.gz"
-      sha256 "813e09e25c29f12889a02206d82bb5e93459aad8067c5a8cf525d53844e06784"
+    if Hardware::CPU.intel?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_linux_amd64.tar.gz"
+        sha256 "5ad3ee08dec09d64a63d1d3da2d123189e7862925dd0cfa5b49b2b0745406d5b"
 
-      def install
-        bin.install "jwks-to-pem"
+        def install
+          bin.install "jwks-to-pem"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.1/jwks-to-pem_linux_amd64.tar.gz"
-      sha256 "07c1d55b9d2b812aa57ef8ef1efce3cca147a2cc9a635f03779dc6fde31d4c77"
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_linux_arm64.tar.gz"
+        sha256 "73005d8216c609eb5a8a312df3f2c4d3a340dbae2d52aaa994211ddedbab3076"
 
-      def install
-        bin.install "jwks-to-pem"
+        def install
+          bin.install "jwks-to-pem"
+        end
       end
     end
   end

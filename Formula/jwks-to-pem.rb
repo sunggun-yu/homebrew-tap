@@ -5,36 +5,30 @@
 class JwksToPem < Formula
   desc "A simple cli tool to convert jwks to pem"
   homepage "https://github.com/sunggun-yu/jwks-to-pem-cli"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
-    url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_darwin_all.tar.gz"
-    sha256 "5dc81634421037f248f6f08d72060d76333a9e71cac041ea79d4ebc78d289e12"
+    url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.3/jwks-to-pem_darwin_all.tar.gz"
+    sha256 "02abb0b723ac062728fe6aec40363604b36df75a1d87809afcd1f8796eb8130c"
 
-    def install
+    define_method(:install) do
       bin.install "jwks-to-pem"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_linux_amd64.tar.gz"
-        sha256 "5ad3ee08dec09d64a63d1d3da2d123189e7862925dd0cfa5b49b2b0745406d5b"
-
-        def install
-          bin.install "jwks-to-pem"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.3/jwks-to-pem_linux_amd64.tar.gz"
+      sha256 "0d8a402b9dcab4ee98138ca9f37eb0ff424f9652aadef1baa709ec7dddd95f1d"
+      define_method(:install) do
+        bin.install "jwks-to-pem"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.2/jwks-to-pem_linux_arm64.tar.gz"
-        sha256 "73005d8216c609eb5a8a312df3f2c4d3a340dbae2d52aaa994211ddedbab3076"
-
-        def install
-          bin.install "jwks-to-pem"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sunggun-yu/jwks-to-pem-cli/releases/download/v0.0.3/jwks-to-pem_linux_arm64.tar.gz"
+      sha256 "baf125b5607a9f0606c2dd7b5a041790620d8b7293dec7301df8b6dbad1e9c15"
+      define_method(:install) do
+        bin.install "jwks-to-pem"
       end
     end
   end

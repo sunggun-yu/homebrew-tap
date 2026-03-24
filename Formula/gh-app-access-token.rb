@@ -5,36 +5,30 @@
 class GhAppAccessToken < Formula
   desc "Simple Cli tool for operating Github App Installation access token"
   homepage "https://github.com/sunggun-yu/gh-app-access-token"
-  version "0.0.3"
+  version "0.0.4"
 
   on_macos do
-    url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.3/gh-app-access-token_darwin_all.tar.gz"
-    sha256 "3a3c1789088804a87f7fd1ffef59b397b2f8f5c1fed89d16b8d1a7e57dea0c14"
+    url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.4/gh-app-access-token_darwin_all.tar.gz"
+    sha256 "4b29b4cbac8c9fd481282e9f2e2c807ab785100ce92917f3258ca423ba78d602"
 
-    def install
+    define_method(:install) do
       bin.install "gh-app-access-token"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.3/gh-app-access-token_linux_amd64.tar.gz"
-        sha256 "3aab0b8520617aac4eb81b4cde4319f975ea851e0365191f8cad6ad914fb7939"
-
-        def install
-          bin.install "gh-app-access-token"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.4/gh-app-access-token_linux_amd64.tar.gz"
+      sha256 "822a3f93781ef3f5f6458e8f093bddb542516c0292377e951ae0a6a09ffcc56f"
+      define_method(:install) do
+        bin.install "gh-app-access-token"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.3/gh-app-access-token_linux_arm64.tar.gz"
-        sha256 "4489f9098e229df38b28de9a180f337de33a11aad36d17f20db04f7d50a84069"
-
-        def install
-          bin.install "gh-app-access-token"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sunggun-yu/gh-app-access-token/releases/download/v0.0.4/gh-app-access-token_linux_arm64.tar.gz"
+      sha256 "f4895c126c1181c013c0a5e263315ee5afa7340e4bef35c477305e51c77c47b8"
+      define_method(:install) do
+        bin.install "gh-app-access-token"
       end
     end
   end
